@@ -36,7 +36,7 @@ from django.utils import timezone
 from django.utils.encoding import smart_str
 from django.utils.safestring import mark_safe
 from django.utils.timesince import timeuntil
-from django.utils.translation import ungettext, ugettext, ugettext_lazy as _
+from django.utils.translation import ungettext, ugettext, gettext_lazy as _
 from django.core.exceptions import ValidationError
 from django.utils.html import format_html
 from toposort import toposort_flatten
@@ -752,7 +752,7 @@ class Job(models.Model):
         """
         Returns a string representing the time until the next
         time this Job will be run (actually, the "string" returned
-        is really an instance of ``ugettext_lazy``).
+        is really an instance of ``gettext_lazy``).
 
         >>> job = Job(next_run=timezone.now())
         >>> job.get_timeuntil().translate('en')
